@@ -8,10 +8,11 @@ def submit():
     else:
         result_label.config(text="Wrong, die", fg="black")
         
-def next():
+def next_word():
     global random_word
     random_word = random.choice(easy_words)
     sorted_word = sorted(random_word)
+    global sorted_string 
     sorted_string = "".join(sorted_word)
     rand_word.config(text=sorted_string)
     
@@ -33,7 +34,6 @@ random_word = random.choice(easy_words) # select a random word from the list
 sorted_word = sorted(random_word)
 sorted_string = "".join(sorted_word)
 
-
 # GUI ELEMENTS
 title_label = Label(window, text="Word Guessr", font=("Segoe Script Bold", 24, "bold"), bg="#F7DCEC", fg="black")
 title_label.pack(pady=20)
@@ -48,7 +48,7 @@ entry = Entry(window, font=("Palatino Linotype Bold Italic", 14), fg="black")
 entry.place(relx=0.5, rely=0.7, anchor="center") 
 entry.focus_set() # clutch lets you start typing immediately without needing to click the box first
 
-result_label = Label(window, text="", bg="#F7DCEC", fg="white", font=("Palatino Linotype Bold Italic", 14))
+result_label = Label(window, text="", bg="#F7DCEC", fg="black", font=("Palatino Linotype Bold Italic", 14))
 result_label.pack(pady=8)
 
 submit_button = Button(window, text="Enter", command=submit)
