@@ -4,9 +4,9 @@ import random
 def submit():
     guess = entry.get().strip()
     if guess.lower() == random_word.lower():
-        result_label.config(text="Lol nice", fg="#4B3832")  # warm brown text
+        result_label.config(text="Lol nice", fg="#4B3832") 
     else:
-        result_label.config(text="Wrong, die", fg="#4B3832")  # warm brown text
+        result_label.config(text="Wrong, die", fg="#4B3832")  
         
 def next_word():
     global random_word
