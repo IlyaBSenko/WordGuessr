@@ -17,7 +17,11 @@ def next():
     random_word = random.choice(easy_words)
     sorted_word = sorted(random_word)
     sorted_string = "".join(sorted_word)
-    rand_word.config(text="")
+    rand_word.config(text=sorted_string)
+    
+    entry.delete(0, END)
+    result_label.config(text="")
+    entry.focus_set()
     
     
 
