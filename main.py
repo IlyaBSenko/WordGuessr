@@ -1,10 +1,6 @@
 from tkinter import * 
 import random
 
-
-def clear_label():
-    rand_word.config(text=sorted_string)
-
 def submit():
     guess = entry.get().strip()
     if guess.lower() == random_word.lower():
