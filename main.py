@@ -6,7 +6,7 @@ def submit():
     if guess.lower() == random_word.lower():
         result_label.config(text="Lol nice", fg="#4B3832") 
     else:
-        result_label.config(text="Wrong, die", fg="#4B3832")  
+        result_label.config(text="Bruh you suck, the word is: " + random_word, fg="#4B3832")  
         
 def next_word():
     global random_word
@@ -57,8 +57,8 @@ submit_button.place(relx=0.3, rely=0.9, anchor="center")
 next_button = Button(window, text="Next Word", bg="#FFDAB9", fg="#4B3832", command=next_word)  # matching peach button
 next_button.place(relx=0.7, rely=0.9, anchor="center")
 
-change_color = Button(window, text="Change Theme", bg="#FFDA89", fg="#4B3832", command=change_color)
-change_color.place(relx=0.5, rely=0.9, anchor="center")
+# change_color = Button(window, text="Change Theme", bg="#FFDA89", fg="#4B3832", command=change_color)
+# change_color.place(relx=0.5, rely=0.9, anchor="center")
 
 window.bind("<Return>", lambda e: submit()) # connects keyboard enter button to submit button, clutch
 
