@@ -15,18 +15,23 @@ with open("words.txt", "r") as f:
 
 
 current_list = [easy_words, medium_words, hard_words]
+diff_index = 0
+score = 0
+high_score = 0
 
-random_word = random.choice(current_list[0])
+random_word = random.choice(current_list[diff_index])
 sorted_string = "".join(sorted(random_word))
 
 
 
 def submit():
-    global first_try_guesses, guess_attempts
+    global first_try_guesses, guess_attempts, score
     guess_attempts += 1
     guess = entry.get().strip()
     if guess.lower() == random_word.lower():
         result_label.config(text="Lol nice")
+        score += 1
+        show_score()
         if guess_attempts == 1:
             first_try_guesses += 1
             if first_try_guesses > 0 and first_try_guesses % 5 == 0:
@@ -34,16 +39,18 @@ def submit():
     else:
         first_try_guesses = 0
         result_label.config(text="Bruh you suck, the word is: " + random_word)
+        reset_label.config(text="Streak reset to 0")
     update_streak()
         
 def next_word():
     global random_word, sorted_string, guess_attempts
     guess_attempts = 0
-    random_word = random.choice(current_list[0])
+    random_word = random.choice(current_list[diff_index])
     sorted_string = "".join(sorted(random_word))
     rand_word.config(text=sorted_string)
     entry.delete(0, END)
     result_label.config(text="")
+    reset_label.config(text="")
     entry.focus_set()
     update_streak()
     
@@ -56,16 +63,16 @@ def change_diff():
     new = Toplevel(window)
     new.title("Change Difficulty?")
     yes_button = Button(new, text="yes", bg="#FFDA89", fg="#4B3832", command=raise_diff) # raise difficulty
-    yes_button.place(relx=0.5, rely=0.9, anchor="center")
+    yes_button.place(relx=0.3, rely=0.9, anchor="center")
 
     no_button = Button(new, text="no", bg="#FFDA89", fg="#4B3832", command=no_change) # dont change difficulty
-    no_button.place(relx=0.5, rely=0.9, anchor="center")
+    no_button.place(relx=0.8, rely=0.9, anchor="center")
 
     def raise_diff():
-        return # raise difficulty
+        diff_index += 1 # raise difficulty
     
     def no_change():
-        return # no change in difficulty
+        diff_index = diff_index # no change in difficulty
     
         
         
@@ -73,6 +80,12 @@ def change_diff():
 
 def update_streak():
     streak_label.config(text=f"Streak: {first_try_guesses}")
+
+def show_score():
+    score_label.config(text=f"Score: {score}")
+
+def show_high_score():
+    high_score_label.config(text=f"High Score: {high_score}")
 
 
 THEMES = {
@@ -152,7 +165,15 @@ def apply_theme(theme_name: str):
     window.config(bg=theme["bg"])
 
     
-    for lbl in (title_label, guess_word_label, rand_word, result_label, streak_label):
+    for lbl in (
+        title_label, 
+        guess_word_label, 
+        rand_word, result_label, 
+        streak_label, 
+        reset_label,
+        score_label,
+        high_score_label
+    ):
         lbl.config(bg=theme["bg"], fg=theme["fg"])
 
     
@@ -222,6 +243,14 @@ streak_label = Label(window, text="Streak: ", font=("Segoe Script", 12), bg="#FF
 streak_label.place(x=10, y=10)
 update_streak()
 
+score_label = Label(window, text="Score: ", font=("Segoe Script", 12), bg="#FFE5B4", fg="#4B3832")
+score_label.place(x=10, y=34, anchor="nw")
+show_score()
+
+high_score_label = Label(window, text="High Score: ", font=("Segoe Script", 12), bg="#FFE5B4", fg="#4B3832")
+high_score_label.place(x=10, y=58, anchor="nw")
+show_high_score()
+
 guess_word_label = Label(window, text="Guess the word:", font=("Palatino Linotype Bold Italic", 16), bg="#FFE5B4", fg="#4B3832")
 guess_word_label.pack(pady=21)
 
@@ -234,6 +263,9 @@ entry.focus_set()
 
 result_label = Label(window, text="", bg="#FFE5B4", fg="#4B3832", font=("Palatino Linotype Bold Italic", 14))
 result_label.pack(pady=8)
+
+reset_label = Label(window, text="", bg="#FFE5B4", fg="#4B3832", font=("Palatino Linotype Bold Italic", 12))
+reset_label.pack(pady=10)
 
 submit_button = Button(window, text="Enter", bg="#FFDAB9", fg="#4B3832", command=submit)
 submit_button.place(relx=0.3, rely=0.9, anchor="center")
