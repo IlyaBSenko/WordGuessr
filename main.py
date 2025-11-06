@@ -13,7 +13,7 @@ window.config(background="#FFE5B4")
 with open("words.txt", "r") as f:
     exec(f.read())  
 
-random_word = random.choice(medium_words)
+random_word = random.choice(easy_words)
 sorted_string = "".join(sorted(random_word))
 
 
@@ -26,14 +26,14 @@ def submit():
         if guess_attempts == 1:
             first_try_guesses += 1
     else:
-        result_label.config(text="Bruh you suck, the word is: " + random_word)
         first_try_guesses = 0
+        result_label.config(text="Bruh you suck, the word is: " + random_word)
     update_streak()
         
 def next_word():
     global random_word, sorted_string, guess_attempts
     guess_attempts = 0
-    random_word = random.choice(medium_words)
+    random_word = random.choice(easy_words)
     sorted_string = "".join(sorted(random_word))
     rand_word.config(text=sorted_string)
     entry.delete(0, END)
@@ -131,7 +131,7 @@ def apply_theme(theme_name: str):
     window.config(bg=theme["bg"])
 
     
-    for lbl in (title_label, guess_word_label, rand_word, result_label):
+    for lbl in (title_label, guess_word_label, rand_word, result_label, streak_label):
         lbl.config(bg=theme["bg"], fg=theme["fg"])
 
     
