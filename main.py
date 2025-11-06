@@ -2,21 +2,45 @@ from tkinter import *
 import random
 
 
+first_try_guesses = 0
+guess_attempts = 0
+
+
 def submit():
+    global first_try_guesses, guess_attempts
+    guess_attempts += 1
     guess = entry.get().strip()
     if guess.lower() == random_word.lower():
         result_label.config(text="Lol nice")
+        if guess_attempts == 1:
+            first_try_guesses += 1
     else:
         result_label.config(text="Bruh you suck, the word is: " + random_word)
+        first_try_guesses = 0
+    update_streak()
         
 def next_word():
-    global random_word, sorted_string
+    global random_word, sorted_string, guess_attempts
+    guess_attempts = 0
     random_word = random.choice(easy_words)
     sorted_string = "".join(sorted(random_word))
     rand_word.config(text=sorted_string)
     entry.delete(0, END)
     result_label.config(text="")
     entry.focus_set()
+    update_streak()
+    
+# TODO: add difficulty changer option afyer 5 correct first try guesses
+def change_diff():
+    # if guess counter == 5
+    # pop up window that shows two buttons asking if they want to up the challenge
+    # if yes, switch to medium words (or hard words)
+    # otherwise stay on current difficulty
+    return
+
+
+def update_streak():
+    streak_label.config(text=f"Streak: {first_try_guesses}")
 
 
 THEMES = {
@@ -174,6 +198,10 @@ sorted_string = "".join(sorted(random_word))
 
 title_label = Label(window, text="Word Guessr", font=("Segoe Script Bold", 24, "bold"), bg="#FFE5B4", fg="#4B3832")
 title_label.pack(pady=20)
+
+streak_label = Label(window, text="Streak: ", font=("Segoe Script", 12), bg="#FFE5B4", fg="#4B3832")
+streak_label.place(x=10, y=10)
+update_streak()
 
 guess_word_label = Label(window, text="Guess the word:", font=("Palatino Linotype Bold Italic", 16), bg="#FFE5B4", fg="#4B3832")
 guess_word_label.pack(pady=21)
