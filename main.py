@@ -13,8 +13,12 @@ window.config(background="#FFE5B4")
 with open("words.txt", "r") as f:
     exec(f.read())  
 
-random_word = random.choice(easy_words)
+
+current_list = [easy_words, medium_words, hard_words]
+
+random_word = random.choice(current_list[0])
 sorted_string = "".join(sorted(random_word))
+
 
 
 def submit():
@@ -25,6 +29,8 @@ def submit():
         result_label.config(text="Lol nice")
         if guess_attempts == 1:
             first_try_guesses += 1
+            if first_try_guesses > 0 and first_try_guesses % 5 == 0:
+                change_diff()
     else:
         first_try_guesses = 0
         result_label.config(text="Bruh you suck, the word is: " + random_word)
@@ -33,7 +39,7 @@ def submit():
 def next_word():
     global random_word, sorted_string, guess_attempts
     guess_attempts = 0
-    random_word = random.choice(easy_words)
+    random_word = random.choice(current_list[0])
     sorted_string = "".join(sorted(random_word))
     rand_word.config(text=sorted_string)
     entry.delete(0, END)
@@ -49,8 +55,18 @@ def change_diff():
     # otherwise stay on current difficulty
     new = Toplevel(window)
     new.title("Change Difficulty?")
+    yes_button = Button(new, text="yes", bg="#FFDA89", fg="#4B3832", command=raise_diff) # raise difficulty
+    yes_button.place(relx=0.5, rely=0.9, anchor="center")
+
+    no_button = Button(new, text="no", bg="#FFDA89", fg="#4B3832", command=no_change) # dont change difficulty
+    no_button.place(relx=0.5, rely=0.9, anchor="center")
+
+    def raise_diff():
+        return # raise difficulty
     
-    if first_try_guesses % 5 == 0:
+    def no_change():
+        return # no change in difficulty
+    
         
         
 
@@ -228,11 +244,6 @@ next_button.place(relx=0.7, rely=0.9, anchor="center")
 change_color = Button(window, text="Change Theme", bg="#FFDA89", fg="#4B3832", command=change_theme)
 change_color.place(relx=0.5, rely=0.9, anchor="center")
 
-yes_button = Button(new, text="yes", bg="#FFDA89", fg="#4B3832", command=raise_diff) # raise difficulty
-yes_button.place(relx=0.5, rely=0.9, anchor="center")
-
-no_button = Button(new, text="no", bg="#FFDA89", fg="#4B3832", command=no_change) # dont change difficulty
-no_button.place(relx=0.5, rely=0.9, anchor="center")
 
 # apply default theme once so all hard coded colors get normalized
 apply_theme(current_theme)
