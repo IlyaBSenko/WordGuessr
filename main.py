@@ -5,6 +5,17 @@ import random
 first_try_guesses = 0
 guess_attempts = 0
 
+window = Tk()
+window.title("WORD GUESSR")
+window.geometry("600x600")
+window.config(background="#FFE5B4")  
+
+with open("words.txt", "r") as f:
+    exec(f.read())  
+
+random_word = random.choice(medium_words)
+sorted_string = "".join(sorted(random_word))
+
 
 def submit():
     global first_try_guesses, guess_attempts
@@ -22,7 +33,7 @@ def submit():
 def next_word():
     global random_word, sorted_string, guess_attempts
     guess_attempts = 0
-    random_word = random.choice(easy_words)
+    random_word = random.choice(medium_words)
     sorted_string = "".join(sorted(random_word))
     rand_word.config(text=sorted_string)
     entry.delete(0, END)
@@ -179,19 +190,6 @@ def change_theme():
     top.grab_set()          
     top.focus_force()
 
-
-
-
-window = Tk()
-window.title("WORD GUESSR")
-window.geometry("600x600")
-window.config(background="#FFE5B4")  # will be overridden by apply_theme
-
-with open("words.txt", "r") as f:
-    exec(f.read())  
-
-random_word = random.choice(easy_words)
-sorted_string = "".join(sorted(random_word))
 
 
 
