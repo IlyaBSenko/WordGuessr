@@ -43,11 +43,16 @@ def next_word():
     
 # TODO: add difficulty changer option afyer 5 correct first try guesses
 def change_diff():
-    # if guess counter == 5
+    # if guess counter is multiple of 5
     # pop up window that shows two buttons asking if they want to up the challenge
     # if yes, switch to medium words (or hard words)
     # otherwise stay on current difficulty
-    return
+    new = Toplevel(window)
+    new.title("Change Difficulty?")
+    
+    if first_try_guesses % 5 == 0:
+        
+        
 
 
 def update_streak():
@@ -147,7 +152,7 @@ def change_theme():
     """Open a small popup with radio buttons to pick a theme."""
     top = Toplevel(window)
     top.title("Choose Theme")
-    # style the popup to match current theme
+    # styles the popup to match the current theme
     theme = THEMES[current_theme]
     top.config(bg=theme["bg"])
 
@@ -223,8 +228,13 @@ next_button.place(relx=0.7, rely=0.9, anchor="center")
 change_color = Button(window, text="Change Theme", bg="#FFDA89", fg="#4B3832", command=change_theme)
 change_color.place(relx=0.5, rely=0.9, anchor="center")
 
+yes_button = Button(new, text="yes", bg="#FFDA89", fg="#4B3832", command=raise_diff) # raise difficulty
+yes_button.place(relx=0.5, rely=0.9, anchor="center")
 
-# apply default theme once so all hard-coded colors get normalized
+no_button = Button(new, text="no", bg="#FFDA89", fg="#4B3832", command=no_change) # dont change difficulty
+no_button.place(relx=0.5, rely=0.9, anchor="center")
+
+# apply default theme once so all hard coded colors get normalized
 apply_theme(current_theme)
 
 window.bind("<Return>", lambda e: submit())
