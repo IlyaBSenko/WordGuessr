@@ -36,13 +36,15 @@ def submit():
             first_try_guesses += 1
             if first_try_guesses > 0 and first_try_guesses % 5 == 0:
                 change_diff()
+        window.bind("<space>", lambda e: next_word())
+        
     else:
         first_try_guesses = 0
         result_label.config(text="Bruh you suck, the word is: " + random_word)
         reset_label.config(text="Streak reset to 0")
     update_streak()
         
-def next_word():
+def next_word(event=None):
     global random_word, sorted_string, guess_attempts
     guess_attempts = 0
     random_word = random.choice(current_list[diff_index])
@@ -53,6 +55,7 @@ def next_word():
     reset_label.config(text="")
     entry.focus_set()
     update_streak()
+    window.bind("<space>", lambda e: submit())
     
 # TODO: add difficulty changer option afyer 5 correct first try guesses
 def change_diff():
@@ -62,21 +65,22 @@ def change_diff():
     # otherwise stay on current difficulty
     new = Toplevel(window)
     new.title("Change Difficulty?")
-    yes_button = Button(new, text="yes", bg="#FFDA89", fg="#4B3832", command=raise_diff) # raise difficulty
-    yes_button.place(relx=0.3, rely=0.9, anchor="center")
-
-    no_button = Button(new, text="no", bg="#FFDA89", fg="#4B3832", command=no_change) # dont change difficulty
-    no_button.place(relx=0.8, rely=0.9, anchor="center")
-
     def raise_diff():
         diff_index += 1 # raise difficulty
     
     def no_change():
         diff_index = diff_index # no change in difficulty
+        
+        
+        
+    no_button = Button(new, text="no", bg="#FFDA89", fg="#4B3832", command=no_change) # dont change difficulty
+    no_button.place(relx=0.3, rely=0.9, anchor="center")
+        
+        
+    yes_button = Button(new, text="yes", bg="#FFDA89", fg="#4B3832", command=raise_diff) # raise difficulty
+    yes_button.place(relx=0.8, rely=0.9, anchor="center")
     
         
-        
-
 
 def update_streak():
     streak_label.config(text=f"Streak: {first_try_guesses}")
