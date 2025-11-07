@@ -64,7 +64,7 @@ def change_diff():
     # otherwise stay on current difficulty
     new = Toplevel(window)
     new.title("Change Difficulty?")
-    new.geometry("300x100")
+    new.geometry("200x125")
     # new.transient(window)
     theme = THEMES[current_theme]
     new.config(bg=theme["bg"])
