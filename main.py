@@ -112,10 +112,10 @@ THEMES = {
         "button_bg": "#C6EDE0"
     },
     "Midnight Lavender": {
-        "bg": "#2E2B47",     # deep purple-blue
-        "fg": "#EDE9FF",     # soft lavender text
+        "bg": "#EDE9FF",     # deep purple-blue EDE9FF
+        "fg": "#2E2B47",     # soft lavender text
         "accent": "#B59FFF",
-        "entry_bg": "#3C385D",
+        "entry_bg": "#FFFFFF",
         "button_bg": "#6C5DD3"
     },
     "Sunset Ember": {
@@ -148,7 +148,7 @@ THEMES = {
     },
     "Cyber Terminal": {
         "bg": "#0A0A0A",      # black
-        "fg": "#00FF9F",      # neon mint text
+        "fg": "#089000",      # dark green text
         "accent": "#00B36E",
         "entry_bg": "#1B1B1B",
         "button_bg": "#003B2E"
@@ -276,7 +276,8 @@ result_label.pack(pady=8)
 reset_label = Label(window, text="", bg="#FFE5B4", fg="#4B3832", font=("Palatino Linotype Bold Italic", 12))
 reset_label.pack(pady=10)
 
-info_label = Label(window, text="Press space to switch words", bg="#FFE5B4", fg="#4B3834", font=("Palatino Linotype Bold Italic", 10))
+# TODO: Fix so that it either shows only when score is greater than 0 or that you can skip the word even at 0
+info_label = Label(window, text="Press space bar to switch words", bg="#FFE5B4", fg="#4B3834", font=("Palatino Linotype Bold Italic", 10))
 info_label.place(relx=0.5, rely=0.77, anchor="n") # anchor top edge so it appears below
 
 submit_button = Button(window, text="Enter", bg="#FFDAB9", fg="#4B3832", command=submit)
