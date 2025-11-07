@@ -2,7 +2,7 @@ from tkinter import *
 import random
 
 
-first_try_guesses = 0
+first_try_guesses = 4 # debug
 guess_attempts = 0
 
 window = Tk()
@@ -29,7 +29,7 @@ def submit():
     guess_attempts += 1
     guess = entry.get().strip()
     if guess.lower() == random_word.lower():
-        result_label.config(text="Lol nice")
+        result_label.config(text="Correct")
         score += 1
         show_score()
         if guess_attempts == 1:
@@ -40,7 +40,7 @@ def submit():
         
     else:
         first_try_guesses = 0
-        result_label.config(text="Bruh you suck, the word is: " + random_word)
+        result_label.config(text="Incorrect, the word is: " + random_word)
         reset_label.config(text="Streak reset to 0")
     update_streak()
         
@@ -64,7 +64,7 @@ def change_diff():
     # otherwise stay on current difficulty
     new = Toplevel(window)
     new.title("Change Difficulty?")
-    new.geometry("300x300")
+    new.geometry("300x100")
     # new.transient(window)
     theme = THEMES[current_theme]
     new.config(bg=theme["bg"])
