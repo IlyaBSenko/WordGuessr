@@ -2,7 +2,7 @@ from tkinter import *
 import random
 
 
-first_try_guesses = 4 # debug
+first_try_guesses = 0
 guess_attempts = 0
 
 window = Tk()
@@ -14,7 +14,7 @@ with open("words.txt", "r") as f:
     exec(f.read())  
 
 
-current_list = [easy_words, medium_words, hard_words]
+current_list = [easy_words, medium_words, hard_words] # type: ignore
 diff_index = 0
 score = 0
 high_score = 0
