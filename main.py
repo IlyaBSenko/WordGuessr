@@ -55,7 +55,6 @@ def next_word(event=None):
     reset_label.config(text="")
     entry.focus_set()
     update_streak()
-    window.bind("<space>", lambda e: submit())
     
 # TODO: add difficulty changer option afyer 5 correct first try guesses
 def change_diff():
@@ -176,7 +175,8 @@ def apply_theme(theme_name: str):
         streak_label, 
         reset_label,
         score_label,
-        high_score_label
+        high_score_label,
+        info_label
     ):
         lbl.config(bg=theme["bg"], fg=theme["fg"])
 
@@ -270,6 +270,9 @@ result_label.pack(pady=8)
 
 reset_label = Label(window, text="", bg="#FFE5B4", fg="#4B3832", font=("Palatino Linotype Bold Italic", 12))
 reset_label.pack(pady=10)
+
+info_label = Label(window, text="Press space to switch words", bg="#FFE5B4", fg="#4B3834", font=("Palatino Linotype Bold Italic", 10))
+info_label.place(relx=0.5, rely=0.77, anchor="n") # anchor top edge so it appears below
 
 submit_button = Button(window, text="Enter", bg="#FFDAB9", fg="#4B3832", command=submit)
 submit_button.place(relx=0.3, rely=0.9, anchor="center")
