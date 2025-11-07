@@ -56,20 +56,18 @@ def next_word(event=None):
     entry.focus_set()
     update_streak()
     
-# TODO: add difficulty changer option afyer 5 correct first try guesses
 def change_diff():
-    # if guess counter is multiple of 5
-    # pop up window that shows two buttons asking if they want to up the challenge
-    # if yes, switch to medium words (or hard words)
-    # otherwise stay on current difficulty
+    """Changes Difficulty"""
     new = Toplevel(window)
-    new.title("Change Difficulty?")
-    new.geometry("200x125")
+    new.title("Change difficulty?")
+    new.geometry("215x130")
     # new.transient(window)
     theme = THEMES[current_theme]
     new.config(bg=theme["bg"])
     
-    # diff_label = Label(new, text="Raise difficulty?", bg=theme["bg"], fg=theme["fg"]).pack(pady=10)
+    diff_label = Label(new, text="Raise difficulty?", bg=theme["bg"], fg=theme["fg"], font=("Palatino Linotype Bold Italic", 14))
+    diff_label.pack(pady=10)
+    
     def raise_diff():
         global diff_index
         diff_index = min(diff_index + 1, 2) # prevents it from going past hard words, which would be OD
@@ -77,7 +75,6 @@ def change_diff():
     
     def no_change():
         new.destroy()
-        
         
         
     no_button = Button(new, text="no", bg="#FFDA89", fg="#4B3832", command=no_change) # dont change difficulty
