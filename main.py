@@ -64,11 +64,19 @@ def change_diff():
     # otherwise stay on current difficulty
     new = Toplevel(window)
     new.title("Change Difficulty?")
+    new.geometry("300x300")
+    # new.transient(window)
+    theme = THEMES[current_theme]
+    new.config(bg=theme["bg"])
+    
+    # diff_label = Label(new, text="Raise difficulty?", bg=theme["bg"], fg=theme["fg"]).pack(pady=10)
     def raise_diff():
-        diff_index += 1 # raise difficulty
+        global diff_index
+        diff_index = min(diff_index + 1, 2) # prevents it from going past hard words, which would be OD
+        new.destroy()
     
     def no_change():
-        diff_index = diff_index # no change in difficulty
+        new.destroy()
         
         
         
