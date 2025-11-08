@@ -116,7 +116,7 @@ THEMES = {
         "fg": "#2E2B47",     # soft lavender text
         "accent": "#B59FFF",
         "entry_bg": "#FFFFFF",
-        "button_bg": "#6C5DD3"
+        "button_bg": "#B59FFF"
     },
     "Sunset Ember": {
         "bg": "#FCE8D4",      # warm sand
