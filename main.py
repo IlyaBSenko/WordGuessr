@@ -43,7 +43,8 @@ def submit():
         result_label.config(text="Incorrect, the word is: " + random_word)
         reset_label.config(text="Streak reset to 0")
     update_streak()
-        
+         
+
 def next_word(event=None):
     global random_word, sorted_string, guess_attempts
     guess_attempts = 0
@@ -55,7 +56,8 @@ def next_word(event=None):
     reset_label.config(text="")
     entry.focus_set()
     update_streak()
-    
+
+
 def change_diff():
     """Changes Difficulty"""
     new = Toplevel(window)
@@ -89,11 +91,14 @@ def change_diff():
 def update_streak():
     streak_label.config(text=f"Streak: {first_try_guesses}")
 
+
 def show_score():
     score_label.config(text=f"Score: {score}")
 
+
 def show_high_score():
     high_score_label.config(text=f"High Score: {high_score}")
+
 
 
 THEMES = {
@@ -105,64 +110,66 @@ THEMES = {
         "button_bg": "#FFDAB9"
     },
     "Mint Meadow": {
-        "bg": "#E7F8EE",     # pale mint
-        "fg": "#2E4D43",     # forest green text
+        "bg": "#E7F8EE",     
+        "fg": "#2E4D43",     
         "accent": "#569E8A",
         "entry_bg": "#FFFFFF",
         "button_bg": "#C6EDE0"
     },
     "Midnight Lavender": {
-        "bg": "#EDE9FF",     # deep purple-blue EDE9FF
-        "fg": "#2E2B47",     # soft lavender text
+        "bg": "#EDE9FF",     
+        "fg": "#2E2B47",     
         "accent": "#B59FFF",
         "entry_bg": "#FFFFFF",
         "button_bg": "#B59FFF"
     },
     "Sunset Ember": {
-        "bg": "#FCE8D4",      # warm sand
-        "fg": "#5A2D1C",      # deep ember brown
+        "bg": "#FCE8D4",     
+        "fg": "#5A2D1C",      
         "accent": "#D67A36",
         "entry_bg": "#FFF3E6",
         "button_bg": "#F5B67A"
     },
     "Ocean Breeze": {
-        "bg": "#DFF6FF",      # pale water blue
-        "fg": "#1B3A4B",      # deep navy text
+        "bg": "#DFF6FF",      
+        "fg": "#1B3A4B",      
         "accent": "#4A90A4",
         "entry_bg": "#FFFFFF",
         "button_bg": "#B9E6F2"
     },
     "Sleek Monochrome": {
-        "bg": "#F2F2F2",      # light grey
-        "fg": "#1B1B1B",      # near-black text
+        "bg": "#F2F2F2",      
+        "fg": "#1B1B1B",      
         "accent": "#555555",
         "entry_bg": "#FFFFFF",
         "button_bg": "#DDDDDD"
     },
     "Cozy Cabin": {
-        "bg": "#F6EFE7",      # cream beige
-        "fg": "#3D2B1F",      # deep wood brown
+        "bg": "#F6EFE7",      
+        "fg": "#3D2B1F",      
         "accent": "#8C5F3F",
         "entry_bg": "#FFF9F0",
         "button_bg": "#E3C9A6"
     },
     "Cyber Terminal": {
-        "bg": "#0A0A0A",      # black
-        "fg": "#089000",      # dark green text
+        "bg": "#0A0A0A",     
+        "fg": "#089000",     
         "accent": "#00B36E",
         "entry_bg": "#1B1B1B",
         "button_bg": "#003B2E"
     },
     "Pastel Sakura": {
-        "bg": "#FFEAF4",      # soft cherry blossom pink
-        "fg": "#3A2D33",      # plum-brown text
+        "bg": "#FFEAF4",      
+        "fg": "#3A2D33",      
         "accent": "#C06387",
         "entry_bg": "#FFFFFF",
         "button_bg": "#FFD1E3"
     }
 }
 
+
 current_theme = "Peach Coffee"  # default
+
 
 def apply_theme(theme_name: str):
     """Apply colors to the window and all widgets."""
@@ -195,22 +202,25 @@ def apply_theme(theme_name: str):
 
 
 def change_theme():
-    """Open a small popup with radio buttons to pick a theme."""
     top = Toplevel(window)
     top.title("Choose Theme")
-    # styles the popup to match the current theme
     theme = THEMES[current_theme]
     top.config(bg=theme["bg"])
 
     Label(top, text="Select a theme:", bg=theme["bg"], fg=theme["fg"]).pack(padx=12, pady=(12, 6), anchor="w")
 
     choice = StringVar(value=current_theme)
+    original_theme = current_theme  # what to revert to on cancel
 
-    # list themes as radio buttons
     radio_frame = Frame(top, bg=theme["bg"])
     radio_frame.pack(padx=12, pady=6, fill="both")
+
+    def preview(name):
+        apply_theme(name)
+        choice.set(name)
+
     for name in THEMES.keys():
-        Radiobutton(
+        rb = Radiobutton(
             radio_frame,
             text=name,
             variable=choice,
@@ -220,10 +230,11 @@ def change_theme():
             selectcolor=theme["button_bg"],
             activebackground=theme["accent"],
             anchor="w",
-            padx=6
-        ).pack(fill="x")
+            padx=6,
+            command=lambda n=name: preview(n) # previews only when clicked
+        )
+        rb.pack(fill="x")
 
-    
     btn_row = Frame(top, bg=theme["bg"])
     btn_row.pack(padx=12, pady=(10, 12), fill="x")
 
@@ -232,15 +243,22 @@ def change_theme():
         entry.focus_set()
         top.destroy()
 
-    Button(btn_row, text="Apply", command=on_apply, bg=theme["button_bg"], fg=theme["fg"], activebackground=theme["accent"]).pack(side="right", padx=6)
-    Button(btn_row, text="Cancel", command=top.destroy, bg=theme["button_bg"], fg=theme["fg"], activebackground=theme["accent"]).pack(side="right")
+    def on_cancel():
+        apply_theme(original_theme)  # revert
+        top.destroy()
 
-    # center the popup roughly
+    Button(btn_row, text="Apply",  command=on_apply,
+           bg=theme["button_bg"], fg=theme["fg"], activebackground=theme["accent"]).pack(side="right", padx=6)
+    Button(btn_row, text="Cancel", command=on_cancel,
+           bg=theme["button_bg"], fg=theme["fg"], activebackground=theme["accent"]).pack(side="right")
+
+    
+    top.protocol("WM_DELETE_WINDOW", on_cancel) # if the close button is clicked, it reverts the theme
+
     top.geometry("+%d+%d" % (window.winfo_rootx()+60, window.winfo_rooty()+60))
-    top.transient(window)   
-    top.grab_set()          
+    top.transient(window)
+    top.grab_set()
     top.focus_force()
-
 
 
 
