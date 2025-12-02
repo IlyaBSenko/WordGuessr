@@ -24,6 +24,13 @@ random_word = random.choice(current_list[diff_index])
 sorted_string = "".join(sorted(random_word))
 
 
+# TODO:
+'''
+Add function to get rid of duplicate words (cant get happy more then once in one round of playing)
+Add function to see if another word fits (garden and danger both word for adegnr)
+'''
+
+
 
 def submit():
     global first_try_guesses, guess_attempts, score
