@@ -2,6 +2,11 @@ from tkinter import *
 import random
 
 
+
+# TODO:
+# add hint function: button to generate hints, could be the first letter, last letter, or the meaning of the words, etc.
+
+
 first_try_guesses = 0
 guess_attempts = 0
 

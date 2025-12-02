@@ -2,46 +2,154 @@ easy_words = [
     "cat", "dog", "tree", "book", "fish", "star", "moon", "bird",
     "door", "milk", "rain", "ball", "frog", "shoe", "leaf", "cake",
     "fire", "snow", "boat", "rock", "sand", "cup", "duck", "lamp",
-    "wind", "grass", "coin", "flag", "seed", "farm", 
-    "apple", "chair", "table", "house", "water", "bread", "chair",
+    "wind", "grass", "coin", "flag", "seed", "farm",
+    "apple", "chair", "table", "house", "water", "bread",
     "car", "bus", "truck", "train", "plane", "hat", "coat", "sock",
     "shirt", "pants", "sun", "cloud", "sky", "river", "lake",
-    "park", "road", "hill", "box", "cup", "bed", "toy", "paint",
+    "park", "road", "hill", "box", "bed", "toy", "paint",
     "pen", "pencil", "note", "bag", "map", "clock", "mouse",
     "lion", "tiger", "bear", "zebra", "snake", "goose", "turkey",
-    "whale", "shark", "crab", "shell", "starfish", "ant", "bee",
+    "whale", "shark", "crab", "shell", "ant", "bee",
     "bug", "worm", "dirt", "stone", "log", "branch", "twig",
-    "nest", "egg", "grass", "bush", "flower", "petal", "root",
+    "nest", "egg", "bush", "flower", "petal", "root",
     "soil", "field", "barn", "cow", "pig", "goat", "sheep",
     "corn", "wheat", "rice", "berry", "fruit", "cookie", "soup",
-    "juice", "soda", "pizza", "bread", "cheese", "jam", "honey",
+    "juice", "soda", "pizza", "cheese", "jam", "honey",
     "mint", "salt", "sugar", "spoon", "fork", "knife", "plate",
-    "bowl", "napkin", "rug", "mat", "shelf", "bookcase", "couch",
-    "sofa", "desk", "towel", "soap", "brush", "comb", "mirror",
-    "window", "curtain", "wall", "floor", "ceiling", "roof",
-    "chimney", "garage", "yard", "porch", "gate", "fence",
-    "street", "sidewalk", "bridge", "tunnel", "light", "bulb",
-    "battery", "cable", "phone", "radio", "clock", "watch",
-    "timer", "drum", "flute", "guitar", "piano", "bell", "horn",
+    "bowl", "rug", "mat", "shelf", "couch",
+    "desk", "towel", "soap", "brush", "comb", "mirror",
+    "window", "curtain", "wall", "floor", "roof",
+    "yard", "porch", "gate", "fence",
+    "light", "bulb", "cable", "phone", "radio", "watch",
+    "drum", "flute", "guitar", "piano", "bell", "horn",
     "song", "voice", "sound", "noise", "laugh", "smile", "hug",
     "jump", "run", "walk", "sit", "stand", "sleep", "dream",
-    "game", "toy", "balloon", "gift", "magic", "chalk", "crayon",
-    "paper", "string", "rope", "bucket", "shovel", "ladder",
-    "wheel", "engine", "metal", "plastic", "glass", "wood"
+    "game", "gift", "magic", "chalk", "paper", "string", "rope",
+    "bucket", "shovel", "ladder",
+    "wheel", "engine", "metal", "plastic", "glass", "wood",
+
+    "pebble", "shore", "wave", "fog", "heat", "cold", "frost",
+    "chip", "snack", "salad", "pasta", "noodle",
+    "banana", "orange", "grape", "melon", "peach", "plum",
+    "pear", "kiwi", "lime", "lemon",
+    "burger", "fries", "toast", "butter",
+    "ice", "cream", "brownie", "syrup",
+
+    "turtle", "seal", "otter", "moose", "elk", "fox", "wolf",
+    "puppy", "kitten", "pony", "horse", "camel",
+    "panda", "monkey", "hippo", "rhino", "bat",
+    "eagle", "sparrow", "pigeon", "robin", "hawk",
+
+    "helmet", "glove", "scarf", "boots", "belt", "jacket",
+    "jeans", "shorts", "sweater", "dress", "skirt", "mittens",
+
+    "blanket", "pillow", "sheet", "cover", "drawer", "closet",
+    "cabinet", "bench", "stool", "frame", "lamp",
+    "heater", "fan", "remote", "charger", "screen",
+    "printer", "tablet", "speaker",
+
+    "garden", "hose", "hedge",
+    "lawn", "patio", "shed", "pickup",
+
+    "city", "town", "village", "market", "store",
+    "school", "class", "marker", "folder", "notebook", "binder",
+    "tape", "glue", "eraser", "board", "locker",
+
+    "circle", "square", "triangle", "shape", "color",
+    "red", "blue", "green", "yellow", "orange",
+    "purple", "pink", "white", "black", "gray",
+
+    "forest", "desert", "island", "cave", "cliff", "valley",
+    "mountain",
+
+    "candy", "muffin", "coffee",
+
+    "step", "crawl", "roll", "slide", "spin", "wave",
+
+    "movie", "story", "poem", "joke",
+    "camera", "frame", "photo",
+
+    "torch", "basin", "mop", "broom", "dust", "sponge",
+
+    "cube", "ball", "stick", "chip", "block",
+    "key", "lock", "chain", "hook", "ring", "net",
+
+    "pan", "pot", "tray", "oven", "stove", "fridge", "freezer",
+
+    "button", "lever", "spring", "bolt", "nut", "pipe", "valve",
+    "gear", "wheel", "paw", "tail",
+
+    "wallet", "stamp", "ticket", "note", "card",
+
+    "sign", "tag",
+
+    "clouds", "stars", "space", "rocket",
+
+    "driver", "rider", "pilot", "farmer",
+    "baker", "chef", "doctor", "nurse", "clerk", "guard",
+
+    "camp", "tent", "trail", "canoe", "raft",
+
+    "cookie", "waffle", "pancake",
+
+    "foot", "hand", "arm", "leg", "head", "face",
+    "hair", "eye", "ear", "nose", "mouth",
+    "finger", "thumb", "toe",
+
+    "smell", "taste", "light", "touch",
+
+    "breeze", "shadow", "echo", "spark", "glow",
+    "shine", "shade", "steam", "smoke",
+
+    "toybox", "slide", "swing", "tower"
 ]
 
 
 medium_words = [
     "happy", "yellow", "window", "butter", "planet", "garden",
-    "silver", "rocket", "mountain", "teacher", "holiday", "picture",
-    "machine", "vehicle", "library", "concert", "journey", "pumpkin",
-    "diamond", "weather", "monster", "festival", "kitchen", "adventure"
+    "silver", "rocket", "teacher", "holiday", "picture",
+    "machine", "vehicle", "library", "concert", "journey",
+    "pumpkin", "diamond", "weather", "monster", "festival",
+    "kitchen", "adventure",
+
+    "castle", "forest", "frozen", "lantern", "bridge", "island",
+    "pocket", "bottle", "blanket", "station", "notebook", "battery",
+    "package", "college", "dollar", "travel", "favorite", "candles",
+    "student", "science", "writer", "artist",
+    "harvest", "cottage", "market", "people", "family",
+    "danger", "pirate", "ticket",
+    "mystery", "treasure", "dragon", "whisper", "memory", "music",
+    "shelter", "freedom", "fortune", "feather",
+    "desert", "volcano", "thunder", "rainbow",
+    "sunrise", "sunset", "voyage", "empire",
+    "harbor", "anchor", "captain", "galaxy", "meteor",
+    "horizon", "partner", "village", "country",
+    "highway", "engineer", "factory", "mission", "legend",
+    "portrait", "gallery", "museum", "costume",
+    "victory", "chapter", "season", "shadows",
+    "courage", "warrior"
 ]
 
+
 hard_words = [
-    "astonishing", "meticulous", "transparency", "benevolent",
-    "complicated", "astonishment", "revolutionary", "magnificent",
-    "extraordinary", "unbelievable", "appreciation", "discovery",
-    "communication", "university", "determination", "intelligence",
-    "architecture", "responsibility", "civilization", "entertainment"
+    "astonish", "meticulous", "transparent", "benevolence",
+    "complicated", "revolute", "magnific", "extraord",
+    "appreciate", "discovery",
+    "universe", "determine", "civilize", "entertain",
+
+    "sophist", "philos", "psychic", "biology",
+    "investor", "perspect", "imaginat",
+    "interpret", "signific",
+    "transform", "inspire", "collabor",
+    "presenta", "capabili", "astronom",
+    "metaphor", "explaine",
+    "associate", "authenti", "producti",
+    "accelerat", "predict", "constitut",
+    "reconstr", "phenomen",
+    "approx", "conserve",
+    "implement", "administ",
+    "qualify", "composite",
+    "sustain", "identify",
+    "manipula", "instinct",
+    "orientat", "evolve", "observe"
 ]
