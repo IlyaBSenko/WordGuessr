@@ -14,10 +14,11 @@ with open("words.txt", "r") as f:
     exec(f.read())  
 
 
-current_list = [easy_words, medium_words, hard_words] # type: ignore
+current_list = [easy, medium, hard] # type: ignore
 diff_index = 0
 score = 0
 high_score = 0
+hint_stage = 0
 
 random_word = random.choice(current_list[diff_index])
 sorted_string = "".join(sorted(random_word))
@@ -60,19 +61,18 @@ def next_word(event=None):
     update_streak()
     
     
-hint_stage = 0
 def generate_hint(event=None):
     global hint_stage, random_word
     if hint_stage == 0:
         hint_label.config(text=f"First letter: {random_word[0]}")
-        hint_stage + 1
+        hint_stage += 1
         
     elif hint_stage == 1:
         hint_label.config(text=f"First two letters: {random_word[:2]}")
-        hint_stage + 1
+        hint_stage += 1
         
     else:
-        hint_label.config(text="No more hints!")
+        no_hint_label.config(text="No more hints!")
 
 
 def change_diff():
@@ -206,7 +206,8 @@ def apply_theme(theme_name: str):
         score_label,
         high_score_label,
         info_label,
-        hint_label
+        hint_label,
+        no_hint_label
     ):
         lbl.config(bg=theme["bg"], fg=theme["fg"])
 
@@ -214,7 +215,7 @@ def apply_theme(theme_name: str):
     entry.config(bg=theme["entry_bg"], fg=theme["fg"], insertbackground=theme["fg"])
 
     
-    for btn in (submit_button, next_button, change_color):
+    for btn in (submit_button, next_button, change_color, hint_button):
         btn.config(bg=theme["button_bg"], fg=theme["fg"], activebackground=theme["accent"])
 
 
@@ -330,6 +331,9 @@ hint_button.place(relx=.1, rely=.9, anchor="center")
 
 hint_label = Label(window, text="", bg="#FFDAB9", fg="#4B3832", font=("Palatino Linotype Bold Italic", 14))
 hint_label.pack(pady=10)
+
+no_hint_label = Label(window, text="", bg="#FFDAB9", fg="#4B3832", font=("Palatino Linotype Bold Italic", 13))
+no_hint_label.pack(pady=11)
 
 
 # apply default theme once so all hard coded colors get normalized
