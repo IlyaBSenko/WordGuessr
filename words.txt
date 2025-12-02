@@ -9,33 +9,55 @@ easy = [
     "bunny", "zebra", "tiger", "whale", "eagle",
     "mouse", "smell", "touch", "taste", "sound",
     "quick", "clean", "brave", "magic", "story",
-    "fairy", "crown", "music", "dance", "shout",
-    "block", "game", "movie", "earth", "world",
-    "space", "stars", "flame", "sugar", "juice",
-    "honey", "chalk", "paint", "write", "clock",
-    "lunch", "snack", "fries", "silly", "goofy",
-    "quiet", "roast", "child", "buddy", "horse",
-    "sheep", "rocks", "bloom", "shine", "skate",
-    "slide", "swing", "climb", "tree", "frog",
-    "duck", "bird", "milk", "rain", "snow",
-    "blue", "pink", "star"
+    "fairy", "crown", "dance", "shout", "block",
+    "game",  "movie", "earth", "world", "space",
+    "stars", "flame", "sugar", "juice", "honey",
+    "chalk", "paint", "write", "clock", "lunch",
+    "snack", "fries", "silly", "goofy", "quiet",
+    "roast", "child", "buddy", "horse", "sheep",
+    "rocks", "bloom", "shine", "skate", "slide",
+    "swing", "climb", "tree",  "frog",  "duck",
+    "bird",  "milk",  "rain",  "snow",  "blue",
+    "pink",  "star",  "shell", "stone", "palm",
+    "wind",  "leaf",  "seeds", "short", "long",
+    "round", "soft",  "hard",  "sweet", "sour",
+    "tasty", "crisp", "bright", "sleepy", "funny",
+    "booth", "snail", "crab",  "shark", "moose",
+    "geese", "doves", "skies", "seals", "panda",
+    "koala", "moles", "mints", "brush", "broom",
+    "socks", "shoes", "glove", "shirt", "shorts",
+    "pants", "bench", "shelf", "stool", "couch",
+     "blank", "chips", "salsa", "syrup",
+    "pears", "mango", "melon", "notes", "piano",
+    "flute", "drums", "cello", "harp",  "tunes",
+    "spark", "flash", "buzzy", "chirp", "tweet",
+    "whirl", "crawl", "hopes", "jumps"
 ]
+
+
 
 
 
 medium = [
     "pocket", "pickle", "pepper", "pencil",
     "marble", "pretty", "rocket", "school",
-    "silver", "spring", "castle", "cheese",
-    "garden", "family", "father", "winter",
-    "banana", "bubble", "sister", "soccer",
-    "rabbit", "farmer", "letter", "island",
-    "little", "market", "mother", "skater",
-    "spider", "smooth", "travel", "wonder",
-    "yellow", "butter", "candle", "circle",
-    "cherry", "sunset", "shower", "simple",
-    "sunrise", "hammer", "napkin"
+    "silver", "spring", "cheese", "garden",
+    "family", "father", "winter", "banana",
+    "bubble", "sister", "soccer", "rabbit",
+    "farmer", "letter", "island", "little",
+    "market", "mother", "skater", "spider",
+    "smooth", "travel", "wonder", "yellow",
+    "butter", "candle", "cherry", "sunset",
+    "shower", "simple", "sunrise", "hammer",
+    "napkin", "bottle", "branch", "copper",
+    "driver", "engine", "golden", "helmet",
+    "shovel", "string", "zigzag", "orange",
+    "carpet", "doctor", "gentle", "mellow",
+    "frozen", "campus", "throat", "rubber",
+    "drawer", "patrol", "bridge", "button",
+    "planet", "dinner", "supper", "bucket"
 ]
+
 
 
 
@@ -43,8 +65,18 @@ hard = [
     "giraffe", "monster", "station", "unicorn",
     "velvet", "yogurt", "turtle", "zipper",
     "rainbow", "jumping", "muscle", "nature",
-    "palace", "sponge", "toybox", "energy",
-    "bright", "loving", "feather", "caring",
-    "glider", "hunger", "belong", "monkey",
-    "forest", "camera", "circle"
+    "palace", "toybox", "energy", "loving",
+    "feather", "caring", "glider", "hunger",
+    "belong", "monkey", "blanket", "painter",
+    "teacher", "printer", "cabinet", "crystal",
+    "popcorn", "sandwich", "balloon", "penguin",
+    "snowman", "spinach", "treetop", "pudding",
+    "airship", "bedtime", "cowgirl", "cowboy",
+    "diamond", "earring", "holiday", "journey",
+    "library", "picture", "railway", "sunbeam",
+    "tornado", "trouble", "village", "whistle",
+    "windmill", "airport", "backpack", "bedroom",
+    "builder", "charger", "kingdom"
 ]
+
+
