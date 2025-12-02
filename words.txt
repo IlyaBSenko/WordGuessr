@@ -132,24 +132,18 @@ medium_words = [
 
 
 hard_words = [
-    "astonish", "meticulous", "transparent", "benevolence",
-    "complicated", "revolute", "magnific", "extraord",
-    "appreciate", "discovery",
-    "universe", "determine", "civilize", "entertain",
-
-    "sophist", "philos", "psychic", "biology",
-    "investor", "perspect", "imaginat",
-    "interpret", "signific",
-    "transform", "inspire", "collabor",
-    "presenta", "capabili", "astronom",
-    "metaphor", "explaine",
-    "associate", "authenti", "producti",
-    "accelerat", "predict", "constitut",
-    "reconstr", "phenomen",
-    "approx", "conserve",
-    "implement", "administ",
-    "qualify", "composite",
-    "sustain", "identify",
-    "manipula", "instinct",
-    "orientat", "evolve", "observe"
+    "amazing", "believe", "courage", "discover",
+    "freedom", "morning", "evening", "journey",
+    "problem", "purpose", "respect", "success",
+    "support", "thought", "weather", "whisper",
+    "imagine", "balance", "builder", "captain",
+    "chapter", "control", "dangerous", "darkness",
+    "feather", "feeling", "forever", "harvest",
+    "history", "improve", "message", "midnight",
+    "natural", "opinion", "picture", "quality",
+    "reading", "reality", "reason", "season",
+    "silence", "special", "station", "student",
+    "teacher", "through", "treasure", "victory",
+    "village", "welcome", "wonder", "writing"
 ]
+
