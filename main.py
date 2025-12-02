@@ -24,12 +24,6 @@ random_word = random.choice(current_list[diff_index])
 sorted_string = "".join(sorted(random_word))
 
 
-# TODO:
-'''
-Add function to get rid of duplicate words (cant get happy more then once in one round of playing)
-Add function to see if another word fits (garden and danger both word for adegnr)
-'''
-
 
 
 def submit():
@@ -46,6 +40,21 @@ def submit():
                 change_diff()
         window.bind("<space>", lambda e: next_word())
         
+    # TODO:
+    # Add feature to see if another word fits (garden and danger both work for adegnr)
+    # need to test
+    sorted_guess = sorted(guess)
+    if sorted_guess == sorted_string:
+        result_label.config(text="Correct! Even though the actual word was " + random_word)
+        score += 1
+        show_score()
+        if guess_attempts == 1:
+            first_try_guesses += 1
+            if first_try_guesses > 0 and first_try_guesses % 5 == 0:
+                change_diff()
+        window.bind("<space>", lambda e: next_word())
+    # END TODO
+        
     else:
         first_try_guesses = 0
         result_label.config(text="Incorrect, the word is: " + random_word)
@@ -53,6 +62,8 @@ def submit():
     update_streak()
          
 
+# TODO:
+# get rid of duplicate words (cant get happy more then once in one round of playing)
 def next_word(event=None):
     global hint_stage, random_word, sorted_string, guess_attempts
     hint_stage = 0
@@ -96,7 +107,7 @@ def change_diff():
     
     def raise_diff():
         global diff_index
-        diff_index = min(diff_index + 1, 2) # prevents it from going past hard words, which would be OD
+        diff_index = min(diff_index + 1, 2) # stops at hard words
         new.destroy()
     
     def no_change():
@@ -227,6 +238,8 @@ def apply_theme(theme_name: str):
 
 
 
+# TODO:
+# change theme color for new popup window as well
 def change_theme():
     top = Toplevel(window)
     top.title("Choose Theme")
@@ -321,8 +334,10 @@ reset_label = Label(window, text="", bg="#FFE5B4", fg="#4B3832", font=("Palatino
 reset_label.pack(pady=10)
 
 # TODO: Fix so that it either shows only when score is greater than 0 or that you can skip the word even at 0
-info_label = Label(window, text="Press space bar to switch words", bg="#FFE5B4", fg="#4B3834", font=("Palatino Linotype Bold Italic", 10))
-info_label.place(relx=0.5, rely=0.77, anchor="n") # anchor top edge so it appears below
+info_label = Label(window, text="", bg="#FFE5B4", fg="#4B3834", font=("Palatino Linotype Bold Italic", 10))
+info_label.place(relx=0.5, rely=0.77, anchor="n") 
+if (score > 0):
+    info_label.config(text="Press space bar to switch words")
 
 submit_button = Button(window, text="Enter", bg="#FFDAB9", fg="#4B3832", command=submit)
 submit_button.place(relx=0.3, rely=0.9, anchor="center")

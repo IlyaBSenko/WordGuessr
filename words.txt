@@ -29,7 +29,7 @@ easy = [
     "pants", "bench", "shelf", "stool", "couch",
      "blank", "chips", "salsa", "syrup",
     "pears", "mango", "melon", "notes", "piano",
-    "flute", "drums", "cello", "harp",  "tunes",
+    "flute", "drums", "harp",  "tunes",
     "spark", "flash", "buzzy", "chirp", "tweet",
     "whirl", "crawl", "hopes", "jumps"
 ]
