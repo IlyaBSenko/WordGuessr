@@ -2,11 +2,6 @@ from tkinter import *
 import random
 
 
-
-# TODO:
-# add hint function: button to generate hints, could be the first letter, last letter, or the meaning of the words, etc.
-
-
 first_try_guesses = 0
 guess_attempts = 0
 
@@ -61,6 +56,14 @@ def next_word(event=None):
     reset_label.config(text="")
     entry.focus_set()
     update_streak()
+    
+    
+# TODO:
+# add hint function: button to generate hints, could be the first letter, last letter, or the meaning of the words, etc.
+def generate_hint(event=None):
+    global random_word
+    first_char = random_word[0]
+    hint_label.config(text="The first letter for this word is: " + first_char)
 
 
 def change_diff():
@@ -193,7 +196,8 @@ def apply_theme(theme_name: str):
         reset_label,
         score_label,
         high_score_label,
-        info_label
+        info_label,
+        hint_label
     ):
         lbl.config(bg=theme["bg"], fg=theme["fg"])
 
@@ -311,6 +315,12 @@ next_button.place(relx=0.7, rely=0.9, anchor="center")
 
 change_color = Button(window, text="Change Theme", bg="#FFDA89", fg="#4B3832", command=change_theme)
 change_color.place(relx=0.5, rely=0.9, anchor="center")
+
+hint_button = Button(window, text="Hint", bg="#FFDA89", fg="#4B3832", command=generate_hint)
+hint_button.place(relx=.1, rely=.9, anchor="center")
+
+hint_label = Label(window, text="", bg="#FFDAB9", fg="#4B3832", font=("Palatino Linotype Bold Italic", 14))
+hint_label.pack(pady=10)
 
 
 # apply default theme once so all hard coded colors get normalized
