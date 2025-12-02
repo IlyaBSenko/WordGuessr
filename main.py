@@ -46,7 +46,8 @@ def submit():
          
 
 def next_word(event=None):
-    global random_word, sorted_string, guess_attempts
+    global hint_stage, random_word, sorted_string, guess_attempts
+    hint_stage = 0
     guess_attempts = 0
     random_word = random.choice(current_list[diff_index])
     sorted_string = "".join(sorted(random_word))
@@ -54,16 +55,24 @@ def next_word(event=None):
     entry.delete(0, END)
     result_label.config(text="")
     reset_label.config(text="")
+    hint_label.config(text="")
     entry.focus_set()
     update_streak()
     
     
-# TODO:
-# add hint function: button to generate hints, could be the first letter, last letter, or the meaning of the words, etc.
+hint_stage = 0
 def generate_hint(event=None):
-    global random_word
-    first_char = random_word[0]
-    hint_label.config(text="The first letter for this word is: " + first_char)
+    global hint_stage, random_word
+    if hint_stage == 0:
+        hint_label.config(text=f"First letter: {random_word[0]}")
+        hint_stage + 1
+        
+    elif hint_stage == 1:
+        hint_label.config(text=f"First two letters: {random_word[:2]}")
+        hint_stage + 1
+        
+    else:
+        hint_label.config(text="No more hints!")
 
 
 def change_diff():
