@@ -25,7 +25,6 @@ sorted_string = "".join(sorted(random_word))
 
 
 
-
 def submit():
     global first_try_guesses, guess_attempts, score
     guess_attempts += 1
@@ -102,8 +101,10 @@ def change_diff():
     theme = THEMES[current_theme]
     new.config(bg=theme["bg"])
     
+    
     diff_label = Label(new, text="Raise difficulty?", bg=theme["bg"], fg=theme["fg"], font=("Palatino Linotype Bold Italic", 14))
     diff_label.pack(pady=10)
+    
     
     def raise_diff():
         global diff_index
@@ -254,10 +255,12 @@ def change_theme():
     radio_frame = Frame(top, bg=theme["bg"])
     radio_frame.pack(padx=12, pady=6, fill="both")
 
+    
     def preview(name):
         apply_theme(name)
         choice.set(name)
 
+    
     for name in THEMES.keys():
         rb = Radiobutton(
             radio_frame,
@@ -274,18 +277,22 @@ def change_theme():
         )
         rb.pack(fill="x")
 
+    
     btn_row = Frame(top, bg=theme["bg"])
     btn_row.pack(padx=12, pady=(10, 12), fill="x")
 
+    
     def on_apply():
         apply_theme(choice.get())
         entry.focus_set()
         top.destroy()
 
+    
     def on_cancel():
         apply_theme(original_theme)  # revert
         top.destroy()
 
+    
     Button(btn_row, text="Apply",  command=on_apply,
            bg=theme["button_bg"], fg=theme["fg"], activebackground=theme["accent"]).pack(side="right", padx=6)
     Button(btn_row, text="Cancel", command=on_cancel,
@@ -298,7 +305,6 @@ def change_theme():
     top.transient(window)
     top.grab_set()
     top.focus_force()
-
 
 
 
@@ -333,11 +339,13 @@ result_label.pack(pady=8)
 reset_label = Label(window, text="", bg="#FFE5B4", fg="#4B3832", font=("Palatino Linotype Bold Italic", 12))
 reset_label.pack(pady=10)
 
+
 # TODO: Fix so that it either shows only when score is greater than 0 or that you can skip the word even at 0
 info_label = Label(window, text="", bg="#FFE5B4", fg="#4B3834", font=("Palatino Linotype Bold Italic", 10))
 info_label.place(relx=0.5, rely=0.77, anchor="n") 
 if (score > 0):
     info_label.config(text="Press space bar to switch words")
+
 
 submit_button = Button(window, text="Enter", bg="#FFDAB9", fg="#4B3832", command=submit)
 submit_button.place(relx=0.3, rely=0.9, anchor="center")
@@ -360,6 +368,7 @@ no_hint_label.pack(pady=11)
 
 # apply default theme once so all hard coded colors get normalized
 apply_theme(current_theme)
+
 
 window.bind("<Return>", lambda e: submit())
 window.mainloop()
