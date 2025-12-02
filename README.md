@@ -2,25 +2,17 @@
 
 A Python desktop application built with **Tkinter** that sorts words by their letters alphabetically and challenges you to correctly guess the sorted word.
 
-This project includes:
-- Word scrambler
-- A theme button to change the colors of the application
-- 3 different difficulty tiers to challenge any level
-- A hint feature to get the first 2 letters of the sorted word
-- Labels to keep track of high score and the first guess streak
-- Difficulty bump after a streak of 5
-
 ---
 
 ## Features
 
 | Category | Description |
 |-----------|--------------|
-| Easy Words | Letters-only or alphanumeric passwords |
-| Medium Words | Mixed case, special characters, or custom-length passwords |
-| High Words | Complex, pattern-free, and non-repeating passwords |
-| Theme Switcher | Securely stores passwords using `keyring` |
-| Streak Tracker | Dark theme and progress bar animations |
+| Easy Words | Simple words 3-5 characters (e.x. apple, duck, red) |
+| Medium Words | Intermediate words 5-6 letters (e.x. little, pocket)|
+| Hard Words | Complex, harder words 6-7 characters (e.x. giraffe, monster, station) |
+| Theme Switcher | Button to  switch theme, up to 9 themes. |
+| Streak Tracker | Label to keep track of first try guesses, raises difficulty on 5 and 10 |
 
 ---
 
