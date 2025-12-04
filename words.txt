@@ -3,7 +3,7 @@ easy = [
     "house", "water", "light", "smile", "laugh",
     "happy", "drink", "sleep", "dream", "fruit",
     "plant", "green", "brown", "black", "white",
-    "pizza", "candy", "grape", "lemon", "berry",
+    "pizza", "candy", "grape", "lemon",
     "toast", "cloud", "storm", "sunny", "rainy",
     "beach", "river", "ocean", "puppy", "kitty",
     "bunny", "zebra", "tiger", "whale", "eagle",
