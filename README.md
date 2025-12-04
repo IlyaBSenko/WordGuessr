@@ -13,6 +13,7 @@ A Python desktop application built with **Tkinter** that sorts words by their le
 | Hard Words | Complex, harder words 6-7 characters (e.x. giraffe, monster, station) |
 | Theme Switcher | Button to  switch theme, up to 9 themes. |
 | Streak Tracker | Label to keep track of first try guesses, raises difficulty on 5 and 10 |
+| Hint button | Generates up to two hints (first two letters of given word) |
 
 ---
 
