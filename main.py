@@ -328,8 +328,9 @@ reset_label.pack(pady=10)
 
 # TODO: Fix so that it either shows only when score is greater than 0 or that you can skip the word even at 0
 info_label = Label(window, text="", bg="#FFE5B4", fg="#4B3834", font=("Palatino Linotype Bold Italic", 10))
-info_label.place(relx=0.5, rely=0.77, anchor="n") 
 while (score != 0):
+    
+    info_label.place(relx=0.5, rely=0.77, anchor="n")
     info_label.config(text="Press space bar to switch words")
 
 
