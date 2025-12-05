@@ -17,6 +17,7 @@ with open("words.txt", "r") as f:
 current_list = [easy, medium, hard] # type: ignore
 diff_index = 0
 score = 0
+score_label_text = StringVar(value="")
 high_score = 0
 hint_stage = 0
 
@@ -34,6 +35,7 @@ def submit():
     if guess.lower() == random_word.lower():
         result_label.config(text="Correct")
         score += 1
+        score_label_text.set("Press space bar to switch words")
         show_score()
         if guess_attempts == 1:
             first_try_guesses += 1
@@ -326,12 +328,8 @@ reset_label = Label(window, text="", bg="#FFE5B4", fg="#4B3832", font=("Palatino
 reset_label.pack(pady=10)
 
 
-# TODO: Fix so that it either shows only when score is greater than 0 or that you can skip the word even at 0
-info_label = Label(window, text="", bg="#FFE5B4", fg="#4B3834", font=("Palatino Linotype Bold Italic", 10))
-while (score != 0):
-    
-    info_label.place(relx=0.5, rely=0.77, anchor="n")
-    info_label.config(text="Press space bar to switch words")
+info_label = Label(window, text="", bg="#FFE5B4", fg="#4B3834", font=("Palatino Linotype Bold Italic", 10), textvariable=score_label_text)
+info_label.place(relx=0.5, rely=0.77, anchor="n")
 
 
 submit_button = Button(window, text="Enter", bg="#FFDAB9", fg="#4B3832", command=submit)
