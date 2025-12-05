@@ -26,7 +26,7 @@ sorted_string = "".join(sorted(random_word))
 
 
 # TODO:
-# Add feature to see if another word fits (garden and danger both work for adegnr)
+# Add feature to see if another word fits (garden and danger both work for adegnr) (stone and notes both work for eonst)
 def submit():
     global first_try_guesses, guess_attempts, score
     guess_attempts += 1
