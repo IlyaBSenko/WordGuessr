@@ -25,6 +25,8 @@ sorted_string = "".join(sorted(random_word))
 
 
 
+# TODO:
+# Add feature to see if another word fits (garden and danger both work for adegnr)
 def submit():
     global first_try_guesses, guess_attempts, score
     guess_attempts += 1
@@ -37,23 +39,7 @@ def submit():
             first_try_guesses += 1
             if first_try_guesses > 0 and first_try_guesses % 5 == 0:
                 change_diff()
-        window.bind("<space>", lambda e: next_word())
-        
-    # TODO:
-    # Add feature to see if another word fits (garden and danger both work for adegnr)
-    # need to test
-    sorted_guess = sorted(guess)
-    if sorted_guess == sorted_string:
-        result_label.config(text="Correct! Even though the actual word was " + random_word)
-        score += 1
-        show_score()
-        if guess_attempts == 1:
-            first_try_guesses += 1
-            if first_try_guesses > 0 and first_try_guesses % 5 == 0:
-                change_diff()
-        window.bind("<space>", lambda e: next_word())
-    # END TODO
-        
+        window.bind("<space>", lambda e: next_word())  
     else:
         first_try_guesses = 0
         result_label.config(text="Incorrect, the word is: " + random_word)

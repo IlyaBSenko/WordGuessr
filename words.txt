@@ -31,7 +31,7 @@ easy = [
     "pears", "mango", "melon", "notes", "piano",
     "flute", "drums", "harp",  "tunes",
     "spark", "flash", "buzzy", "chirp", "tweet",
-    "whirl", "crawl", "hopes", "jumps"
+    "whirl", "crawl", "jump", "note"
 ]
 
 
